@@ -9,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{{asset("css/bootstrap-reboot.min.css")}}">
-    <link rel="stylesheet" href="{{asset("css/bootstrap-grid.min.css")}}">
+{{--    <link rel="stylesheet" href="{{asset("css/bootstrap-reboot.min.css")}}">--}}
+{{--    <link rel="stylesheet" href="{{asset("css/bootstrap-grid.min.css")}}">--}}
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/owl.carousel.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/jquery.mCustomScrollbar.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/nouislider.min.css")}}">
@@ -51,8 +52,8 @@
                             <input value="{{ old('email') }}" name="email" type="text" class="sign__input"
                                    placeholder="Email" required autofocus>
                         </div>
-                        @if ($errors->has('email'))--}}
-                        <span class="invalid-feedback" role="alert">
+                        @if ($errors->has('email'))
+                        <span class="alert-danger mb-2" role="alert">
                             <strong>{{ $errors->first('email') }}</strong>
                         </span>
                         @endif
@@ -60,7 +61,7 @@
                             <input type="password" class="sign__input" placeholder="Password" name="password" required>
                         </div>
                         @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback alert-danger mb-2" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                         @endif
