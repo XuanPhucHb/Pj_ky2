@@ -30,3 +30,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
 Route::fallback(function () {
     return view('404');
 });
+
+Route::get('/movie', [App\Http\Controllers\movieController::class, 'index'])->name('movie.index');
+Route::get('/movie/{id}', [App\Http\Controllers\movieController::class, 'index'])->name('movie.show');

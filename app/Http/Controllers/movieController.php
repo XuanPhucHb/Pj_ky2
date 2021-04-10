@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\movie;
+use App\Models\Movie;
 
-class movieController extends Controller
+class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,13 @@ class movieController extends Controller
      */
     public function index()
     {
-        $allMovie = movie::all();
-        return response()->json([
-            'allMovie'=>$allMovie
-        ]);   
+        $title = 'List movie';
+        $allMovie = Movie::all();
+        return view('catalogs.catalog1')->with(['title' =>$title,
+        'allMovie'=>$allMovie]);
+        //  return response()->json([
+        //     'allMovie'=>$allMovie
+        // ]);  
     }
 
     /**
@@ -38,11 +41,7 @@ class movieController extends Controller
      */
     public function store(Request $request)
     {
-        return movie::create($request->all());
-        return response()->json([
-            'status' => 'success',
-            'message' => 'them moi thanh cong !'
-        ]);
+
     }
 
     /**
@@ -53,10 +52,8 @@ class movieController extends Controller
      */
     public function show($id)
     {
-        $allMovie_by_ID = movie::find($id);
-        return response()->json([
-            'allMovie_by_ID'=>$allMovie_by_ID
-        ]); 
+        $movie_by_ID = Movie::find($id);
+        return view("catalogs.catalog_detail")->with(['movie_by_ID'=>$movie_by_ID,]);
     }
 
     /**
@@ -90,12 +87,6 @@ class movieController extends Controller
      */
     public function destroy($id)
     {
-        $allMovie_by_ID = movie::find($id);
-        $allMovie_by_ID->delete();
-        $allMovie = movie::all();
-        return response()->json([
-            'status' => 'success',
-            'message' => 'xoa thanh cong !'
-        ]);
+
     }
 }
