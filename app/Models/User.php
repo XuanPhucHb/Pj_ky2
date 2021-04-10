@@ -46,6 +46,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    const ADMIN_TYPE = 1;
+    const DEFAULT_TYPE = 2;
+
     public function role()
     {
         return $this->belongsTo(Role::class);

@@ -47,7 +47,6 @@
                             <img src="img/logo.svg" alt="">
                         </a>
                         <!-- end header logo -->
-
                         <!-- header nav -->
                         <ul class="header__nav">
                             <!-- dropdown -->
@@ -91,21 +90,50 @@
                         </ul>
                         <!-- end header nav -->
 
+                        <!-- Right Side Of Navbar -->
                         <!-- header auth -->
                         <div class="header__auth">
                             <button class="header__search-btn" type="button">
                                 <i class="icon ion-ios-search"></i>
                             </button>
+                            @guest
+                                @if (Route::has('login'))
+                                    <a href="{{route('register')}}" class="header__sign-up">
+                                        <i class="icon ion-ios-add-circle"></i>
+                                        <span>sign in</span>
+                                    </a>
+                                @endif
+                                @if (Route::has('register'))
+                                    <a href="{{route('login')}}" class="header__sign-in">
+                                        <i class="icon ion-ios-log-in"></i>
+                                        <span>sign in</span>
+                                    </a>
+                                @endif
+                            @else
+                                <li class="header__nav-item ml-2">
+                                    <a class="dropdown-toggle header__nav-link" href="#" role="button"
+                                       id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">{{ Auth::user()->name }}</a>
 
-                            <a href="{{route('register')}}" class="header__sign-up">
-                                <i class="icon ion-ios-add-circle"></i>
-                                <span>sign in</span>
-                            </a>
+                                    <ul class="dropdown-menu header__dropdown-menu"
+                                        aria-labelledby="dropdownMenuCatalog">
+                                        <li><a href="catalog1.html"><a
+                                                    href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
 
-                            <a href="{{route('login')}}" class="header__sign-in">
-                                <i class="icon ion-ios-log-in"></i>
-                                <span>sign in</span>
-                            </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                      class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </a></li>
+                                        <li><a href="">Profile</a></li>
+                                    </ul>
+                                </li>
+
+                            @endguest
                         </div>
                         <!-- end header auth -->
 
@@ -212,6 +240,8 @@
 <!-- end footer -->
 
 <!-- JS -->
+<script src="{{asset("js/bootstrap.min.js")}}"></script>
+<script src="{{asset("js/app.js")}}"></script>
 <script src="{{asset("js/jquery-3.3.1.min.js")}}"></script>
 <script src="{{asset("js/bootstrap.bundle.min.js")}}"></script>
 <script src="{{asset("js/owl.carousel.min.js")}}"></script>

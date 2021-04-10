@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Font -->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600%7CUbuntu:300,400,500,700" rel="stylesheet">
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
@@ -44,7 +44,7 @@
 						<div class="page-404__content">
 							<h1 class="page-404__title">404</h1>
 							<p class="page-404__text">The page you are looking for not available!</p>
-							<a href="index.html" class="page-404__btn">go back</a>
+							<a href="{{ url()->previous() }}" class="page-404__btn">go back</a>
 						</div>
 					</div>
 				</div>
