@@ -1,1 +1,17 @@
 /* your styles go here */
+
+.max-h-4 {
+    max-height: 400px;
+}
+
+.o-y-s {
+    overflow-y: scroll;
+}
+
+.alert-center {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+}

@@ -25,6 +25,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'index'])->middleware('admin')->name('admin-home');
+    Route::resource('users', \App\Http\Controllers\UserManagementController::class);
 });
 
 Route::fallback(function () {

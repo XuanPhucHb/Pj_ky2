@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="{{asset('admin/vendor/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome CSS-->
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/custom.css') }}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{ asset('admin/img/favicon.ico') }}">
+
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -73,6 +75,8 @@
             <li class="active"><a href="{{asset("/admin/dashboard")}}"> <i class="fa fa-snowflake-o"
                                                                            aria-hidden="true"></i>Home </a>
             </li>
+            <li><a href="{{asset("/admin/users")}}"> <i class="fa fa-address-card-o" aria-hidden="true"></i>Users
+                </a></li>
             <li><a href="{{asset("/admin/movies")}}"> <i class="fa fa-film" aria-hidden="true"></i>Movies </a></li>
             <li><a href="{{asset("/admin/director")}}"> <i class="fa fa-users" aria-hidden="true"></i>Director </a></li>
             <li><a href="{{asset("/admin/writer")}}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Writer
@@ -82,8 +86,7 @@
             <li><a href="{{asset("/admin/genre")}}"> <i class="fa fa-ticket" aria-hidden="true"></i>Genre </a></li>
             <li><a href="{{asset("/admin/year")}}"> <i class="icon-chart"></i>Year </a></li>
             <li><a href="{{asset("/admin/blog")}}"><i class="fa fa-rss" aria-hidden="true"></i>Blog </a></li>
-            <li><a href="{{asset("/admin/comments")}}"> <i class="fa fa-address-card-o" aria-hidden="true"></i>Comments
-                </a></li>
+
 
         </ul>
     </nav>
@@ -94,18 +97,19 @@
         @yield('panel')
 
 
-        <footer class="footer">
-            <div class="footer__block block no-margin-bottom"
-                 style="background-color:rgb(10,10,10);box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: red;">
-                <div class="container-fluid text-center">
-                    <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-                    <p class="no-margin-bottom">2021 &copy; Copyright</p>
-                </div>
-            </div>
-        </footer>
     </div>
+    <footer class="footer">
+        <div class="footer__block block no-margin-bottom"
+             style="background-color:rgb(10,10,10);box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: red;">
+            <div class="container-fluid text-center">
+                <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                <p class="no-margin-bottom">2021 &copy; Copyright</p>
+            </div>
+        </div>
+    </footer>
 </div>
 <!-- JavaScript files-->
+<script type="text/javascript" src="{{ mix('js/app.js') }}" async defer></script>
 <script src="{{ asset('/admin/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('/admin/vendor/popper.js/umd/popper.min.js') }}"></script>
 <script src="{{ asset('/admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -114,5 +118,9 @@
 <script src="{{ asset('/admin/vendor/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('/admin/js/charts-home.js') }}"></script>
 <script src="{{ asset('/admin/js/front.js') }}"></script>
+@yield('scripts')
+<script>
+    toastr.
+</script>
 </body>
 </html>
