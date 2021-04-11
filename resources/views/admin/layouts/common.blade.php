@@ -109,7 +109,6 @@
     </footer>
 </div>
 <!-- JavaScript files-->
-<script type="text/javascript" src="{{ mix('js/app.js') }}" async defer></script>
 <script src="{{ asset('/admin/vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('/admin/vendor/popper.js/umd/popper.min.js') }}"></script>
 <script src="{{ asset('/admin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -119,8 +118,5 @@
 <script src="{{ asset('/admin/js/charts-home.js') }}"></script>
 <script src="{{ asset('/admin/js/front.js') }}"></script>
 @yield('scripts')
-<script>
-    toastr.
-</script>
 </body>
 </html>
