@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
 
 class UserManagementController extends Controller
 {
@@ -93,7 +92,7 @@ class UserManagementController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => 'required|email|max:255|unique:users,email,' . $user->id,
-                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+                'image' => 'mimes:jpeg,bmp,png,PNG' // Only allow .jpg, .bmp and .png file types.
             ]);
             if ($validator->fails()) {
                 return response()->json([
@@ -121,7 +120,7 @@ class UserManagementController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role_id = $request->role_id;
-        $user->image = $file_name;
+        $user->image = url('/').'/img/users/'.$file_name;
         $user->update();
         return response()->json(['message' => 'Record has been updated successfully!']);
 

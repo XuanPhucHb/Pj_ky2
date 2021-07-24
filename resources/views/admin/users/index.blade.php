@@ -23,7 +23,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td class="align-middle"><img width="60px" height="60px;"
-                                                          src="{{asset('img/users/'.$user->image)}}"></td>
+                                                          src="{{$user->image}}"></td>
                             <td class="align-middle">{{$user->name}}</td>
                             <td class="align-middle">{{$user->role->name}}</td>
                             <td class="align-middle">{{$user->email}}</td>
@@ -83,7 +83,7 @@
                                 $("#roles").append(option).val(res.data.role_id);
                                 $("#name").val(res.data.name);
                                 $("#email").val(res.data.email);
-                                $("#store-image").html(`<img width="150px" height="150px" id="avatar" src={{asset("/img/users")}}/${res.data.image}>`)
+                                $("#store-image").html(`<img width="150px" height="150px" id="avatar" src="${res.data.image}">`)
                                 $("#store-image").append(`<input type="hidden" name="hidden_image" value="${res.data.image}"/>`)
 
                                 $("#formEditUser").attr('action', '{{asset("/admin/users")}}/' + res.data.id);

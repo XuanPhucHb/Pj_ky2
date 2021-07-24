@@ -45,7 +45,7 @@
                     <form method="POST" action="{{ route('login') }}" class="sign__form">
                         @csrf
                         <a href="index.html" class="sign__logo">
-                            <img src="img/logo.svg" alt=""> cho nay thay anh logo
+                            <img src="img/logo.svg" alt="">
                         </a>
 
                         <div class="sign__group">

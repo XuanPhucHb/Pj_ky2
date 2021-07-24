@@ -97,19 +97,26 @@
                                 <i class="icon ion-ios-search"></i>
                             </button>
                             @guest
-                                @if (Route::has('login'))
+                                @if (Route::has('register'))
                                     <a href="{{route('register')}}" class="header__sign-up">
                                         <i class="icon ion-ios-add-circle"></i>
-                                        <span>sign in</span>
+                                        <span>{{__('Register') }}</span>
                                     </a>
                                 @endif
-                                @if (Route::has('register'))
+                                @if (Route::has('login'))
                                     <a href="{{route('login')}}" class="header__sign-in">
                                         <i class="icon ion-ios-log-in"></i>
-                                        <span>sign in</span>
+                                        <span>{{__('Login') }}</span>
                                     </a>
                                 @endif
                             @else
+                             @if (Auth::check())
+                                <a href="{{ route('logout') }}" class="header__sign-in"
+                                    onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                 </a>                                         
+                                @endif
                                 <li class="header__nav-item ml-2">
                                     <a class="dropdown-toggle header__nav-link" href="#" role="button"
                                        id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true"
